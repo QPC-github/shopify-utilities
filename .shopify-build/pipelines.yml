@@ -1,0 +1,26 @@
+---
+containers:
+  master:
+    environment: ci-master
+    type: borg
+
+shared_steps:
+  run_in_container: &run_in_container
+    timeout: 20m
+    artifact_paths:
+    - log
+    - /buildkite-artifacts
+
+  javascript_utilities__lint_js: &javascript_utilities__lint_js
+    <<: *run_in_container
+    label: 'JavsScript Utilities - Lint'
+    skip_initialization: true
+    run:
+      - cd packages/javascript-utilities
+      - yarn run lint
+
+pipelines:
+  shopify-utilities: &master
+    default_container: master
+    steps:
+    - <<: *javascript_utilities__lint_js
