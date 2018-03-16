@@ -6,7 +6,19 @@ containers:
 pipelines:
   shopify-utilities:
     steps:
-      - label: 'JavsScript Utilities - Lint'
+      - label: 'JavaScript Utilities - Lint'
         run:
           - yarn
           - yarn workspace @shopify/javascript-utilities run lint
+      - label: 'React Utilities - Lint'
+        run:
+          - yarn
+          - yarn workspace @shopify/javascript-utilities run build
+          - yarn workspace @shopify/react-utilities run lint
+      - wait
+      - label: 'JavaScript Utilities - Publish'
+        run:
+          - yarn workspace @shopify/javascript-utilities publish
+      - label: 'React Utilities - Publish'
+        run:
+          - yarn workspace @shopify/react-utilities publish
