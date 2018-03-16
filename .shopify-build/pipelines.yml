@@ -1,12 +1,12 @@
 ---
 containers:
   default:
-    docker: node:latest
+    docker: node:8.9.4
 
 pipelines:
   shopify-utilities:
     steps:
       - label: 'JavsScript Utilities - Lint'
         run:
-          - cd packages/javascript-utilities
-          - yarn run lint
+          - yarn
+          - yarn workspace @shopify/javascript-utilities run lint
