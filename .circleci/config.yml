@@ -6,7 +6,9 @@ jobs:
     steps:
       - checkout
       - run: yarn
-      - run: circleci tests glob "packages/*" | xargs -n 1 -I % yarn --cwd % run lint
+      - run: yarn workspace @shopify/javascript-utilities run build
+      - run: yarn workspace @shopify/javascript-utilities run lint
+      - run: yarn workspace @shopify/react-utilities run lint
 workflows:
   version: 2
   lint_and_test:
