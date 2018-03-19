@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "wsrun build --stages",
-    "lint": "wsrun lint --fast-exit"
+    "lint": "wsrun lint --fast-exit",
+    "test": "wsrun test --fast-exit --exclude-missing"
   }
 }
