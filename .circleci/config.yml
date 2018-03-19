@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  lint:
+    docker:
+      - image: circleci/node:8.9.4
+    steps:
+      - checkout
+      - run: yarn
+      - run: circleci tests glob "packages/*" | xargs -n 1 -I % yarn --cwd % run lint
+workflows:
+  version: 2
+  lint_and_test:
+    jobs:
+      - lint
