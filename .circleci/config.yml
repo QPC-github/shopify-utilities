@@ -6,9 +6,8 @@ jobs:
     steps:
       - checkout
       - run: yarn
-      - run: yarn workspace @shopify/javascript-utilities run build
-      - run: yarn workspace @shopify/javascript-utilities run lint
-      - run: yarn workspace @shopify/react-utilities run lint
+      - run: yarn build
+      - run: yarn lint
 workflows:
   version: 2
   lint_and_test:

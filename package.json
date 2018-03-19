@@ -1,5 +1,14 @@
 {
   "name": "shopify-utilities",
   "private": true,
-  "workspaces": ["packages/*"]
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "wsrun": "^2.0.0"
+  },
+  "scripts": {
+    "build": "wsrun build --stages",
+    "lint": "wsrun lint --fast-exit"
+  }
 }
