@@ -5,11 +5,11 @@
     "packages/*"
   ],
   "devDependencies": {
-    "wsrun": "^2.0.0"
+    "lerna": "^2.9.0"
   },
   "scripts": {
-    "build": "wsrun build --stages",
-    "lint": "wsrun lint --fast-exit",
-    "test": "wsrun test --fast-exit --exclude-missing"
+    "build": "lerna run build",
+    "lint": "lerna run lint",
+    "test": "lerna run test"
   }
 }
